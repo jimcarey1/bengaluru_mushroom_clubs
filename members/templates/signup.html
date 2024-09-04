@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+</head>
+<body>
+    <h2>Signup Form</h2>
+    <form method="post" action="{% url 'signup' %}">
+        {% csrf_token %}
+        
+        <div>
+            <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+            {{ form.username }}
+            {% if form.username.errors %}
+                <div style="color: red;">
+                    {{ form.username.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div>
+            <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+            {{ form.email }}
+            {% if form.email.errors %}
+                <div style="color: red;">
+                    {{ form.email.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div>
+            <label for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
+            {{ form.password }}
+            {% if form.password.errors %}
+                <div style="color: red;">
+                    {{ form.password.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div>
+            <label for="{{ form.confirm_password.id_for_label }}">{{ form.confirm_password.label }}</label>
+            {{ form.confirm_password }}
+            {% if form.confirm_password.errors %}
+                <div style="color: red;">
+                    {{ form.confirm_password.errors }}
+                </div>
+            {% endif %}
+        </div>
+
+        <div>
+            <button type="submit">Sign Up</button>
+        </div>
+    </form>
+</body>
+</html>
